@@ -1,5 +1,5 @@
 import cartImage from "../../media/images/cart.svg";
-import "./cart-widget.scss";
+import "./CartWidget.scss";
 
 const CartWidget = ({ itemCount }) => {
   return (

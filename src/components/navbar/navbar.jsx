@@ -1,6 +1,15 @@
-import CartWidget from "../cart-widget/cart-widget";
+import CartWidget from "../cart-widget/CartWidget";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const pages = [
+    { label: "Home", link: "/" },
+    // { label: "Checkout", link: "/checkout" },
+    // { label: "Contacto", link: "/contacto" },
+    { label: "Alimento", link: "/category/alimento" },
+    { label: "Cuidado", link: "/category/cuidado" },
+  ];
+
   return (
     <div>
       <nav className="bg-green-600 dark:bg-gray-800  ">
@@ -26,30 +35,14 @@ const Navbar = () => {
             <div className=" flex items-center">
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
-                  <a
-                    className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                    href="/#"
-                  >
-                    Home
-                  </a>
-                  <a
-                    className="text-gray-800 dark:text-white  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                    href="/#"
-                  >
-                    Gallery
-                  </a>
-                  <a
-                    className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                    href="/#"
-                  >
-                    Content
-                  </a>
-                  <a
-                    className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                    href="/#"
-                  >
-                    Contact
-                  </a>
+                  {pages.map((page) => (
+                    <Link
+                      className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                      to={page.link}
+                    >
+                      {page.label}
+                    </Link>
+                  ))}
                 </div>
               </div>
             </div>
@@ -58,30 +51,14 @@ const Navbar = () => {
         </div>
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a
-              className="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-              href="/#"
-            >
-              Home
-            </a>
-            <a
-              className="text-gray-800 dark:text-white block px-3 py-2 rounded-md text-base font-medium"
-              href="/#"
-            >
-              Gallery
-            </a>
-            <a
-              className="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-              href="/#"
-            >
-              Content
-            </a>
-            <a
-              className="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-              href="/#"
-            >
-              Contact
-            </a>
+            {pages.map((page) => (
+              <Link
+                className="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                to={page.link}
+              >
+                {page.label}
+              </Link>
+            ))}
           </div>
         </div>
       </nav>
