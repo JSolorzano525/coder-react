@@ -11,7 +11,7 @@ function App() {
         {/* componentes que estan en todas las rutas */}
         <Navbar />
         <Routes>
-          <Route path="/" element={<ItemListContainer />} />
+          <Route path="/" element={<ItemListContainer greetings={"Hola"} />} />
           <Route path="/category/:idCategory" element={<ItemListContainer />} />
           <Route path="/item/:idItem" element={<ItemDetailContainer />} />
         </Routes>
